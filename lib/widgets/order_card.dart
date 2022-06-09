@@ -1,13 +1,19 @@
+import 'package:avocado_flutter_task/helpers/date_helper.dart';
+import 'package:avocado_flutter_task/models/prescription.dart';
 import 'package:flutter/material.dart';
 
 import '../managers/color_manager.dart';
+import '../screens/view_order_screen.dart';
 
 class OrderCard extends StatelessWidget {
-  const OrderCard({Key? key}) : super(key: key);
+  OrderCard({Key? key, required this.prescription}) : super(key: key);
+  Prescription prescription;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pushNamed(ViewOrderScreen.routeName, arguments: prescription),
+      child: Card(
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10,),
         color: ColorManager.secondary,
         shape: RoundedRectangleBorder(
@@ -42,8 +48,8 @@ class OrderCard extends StatelessWidget {
               height: 60,
               child: Center(
                 child: Text(
-                  'Jenny Yohana',
-                  
+                  // 'Jenny Yohana',
+                  prescription.patientName,
                   style: TextStyle(
                     color: ColorManager.primary,
                     fontSize: 20,
@@ -57,7 +63,7 @@ class OrderCard extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.grey,
+                  backgroundColor: ColorManager.circularAvatarBackground,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,8 +79,8 @@ class OrderCard extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          '10:30',
-                          
+                          // '10:30',
+                          prescription.consultationTime,
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -90,9 +96,9 @@ class OrderCard extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          '06 May 2021',
-                          
-                          
+                          // '06 May 2021',
+                          DateHelper.getDateWithMonthShortName(prescription.prescriptionDate),
+                          // DateHelper.getMonthShortNameFromDate(prescription.prescriptionDate),
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -103,8 +109,8 @@ class OrderCard extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Prescription consultation',
-                      
+                      // 'Prescription consultation',
+                      prescription.prescriptionDetails,
                       style: TextStyle(
                         color: Colors.grey,
                       ),
@@ -113,13 +119,13 @@ class OrderCard extends StatelessWidget {
                 ),
                 Container(
                     width: 30,
-                    // height: 30,
+                    height: 30,
                     child: CheckboxListTile(
                       tileColor: ColorManager.secondary,
                       checkColor: Colors.white,
                       activeColor: ColorManager.secondary,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       value: true,
                       onChanged: (value) {},
@@ -153,6 +159,7 @@ class OrderCard extends StatelessWidget {
             ),
           ],
         ),
-      );
+      ),
+    );
   }
 }

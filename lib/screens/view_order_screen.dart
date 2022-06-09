@@ -1,11 +1,15 @@
+import 'package:avocado_flutter_task/helpers/date_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../managers/color_manager.dart';
+import '../models/prescription.dart';
 
 class ViewOrderScreen extends StatelessWidget {
   const ViewOrderScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/view-order';
 
   _prescriptionInfo(String title, String info) {
     List<Widget> list = [];
@@ -25,13 +29,19 @@ class ViewOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Prescription prescription =
+        ModalRoute.of(context)!.settings.arguments as Prescription;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Center(child: Text('Prescription')),
+        title: Center(
+          child: Text('Prescription'),
+        ),
+        backgroundColor: ColorManager.primary,
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -73,19 +83,20 @@ class ViewOrderScreen extends StatelessWidget {
                 // ),
               ],
             ),
-            ..._prescriptionInfo('Patient Name', 'Samyam bahadur bc'),
-            
-            
+            // ..._prescriptionInfo('Patient Name', 'Samyam bahadur bc'),
+            ..._prescriptionInfo('Patient Name', prescription.patientName),
+
             SizedBox(
               height: 10,
             ),
-            ..._prescriptionInfo('Tite for medicine', 'High fever & cough'),
-            
+            ..._prescriptionInfo(
+                'Tite for medicine', prescription.prescriptionTitle),
+
             SizedBox(
               height: 10,
             ),
-            ..._prescriptionInfo('Signature', '46383847938938023'),
-            
+            ..._prescriptionInfo('Signature', prescription.docSignature),
+
             SizedBox(
               height: 30,
             ),
@@ -119,8 +130,9 @@ class ViewOrderScreen extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
                               child: Text(
-                                '2022',
-                                
+                                // '2022',
+                                DateHelper.getYearFromDate(
+                                    prescription.prescriptionDate),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
@@ -143,8 +155,9 @@ class ViewOrderScreen extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
                               child: Text(
-                                '/02',
-                                
+                                // '/02',
+                                DateHelper.getMonthFromDate(
+                                    prescription.prescriptionDate),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
@@ -165,7 +178,9 @@ class ViewOrderScreen extends StatelessWidget {
                             padding: EdgeInsets.only(left: 10),
                             child: Center(
                               child: Text(
-                                '/28',
+                                // '/28',
+                                DateHelper.getDayFromDate(
+                                    prescription.prescriptionDate),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
