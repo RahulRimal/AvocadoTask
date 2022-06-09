@@ -1,6 +1,6 @@
-import 'package:avocado_flutter_task/models/demo_person.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import '../managers/color_manager.dart';
@@ -13,7 +13,7 @@ class DemoPersonScreen extends StatelessWidget {
   _personInfo(String title, String info) {
     List<Widget> list = [];
 
-    list.add(SizedBox(
+    list.add(const SizedBox(
       height: 10,
     ));
 
@@ -21,13 +21,13 @@ class DemoPersonScreen extends StatelessWidget {
     list.add(ListTile(
       horizontalTitleGap: 2,
       tileColor: ColorManager.listTileColor,
-      leading: Icon(Icons.person_outline),
+      leading: const Icon(Icons.person_outline),
       title: Text(info),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
     ));
-    list.add(SizedBox(
+    list.add(const SizedBox(
       height: 10,
     ));
     return list;
@@ -40,10 +40,10 @@ class DemoPersonScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Center(
+        title: const Center(
           child: Text('Person Info through API'),
         ),
         backgroundColor: ColorManager.primary,
@@ -52,16 +52,16 @@ class DemoPersonScreen extends StatelessWidget {
           future: demoPersons.getPerson(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else {
               if (snapshot.hasError) {
-                return Center(
+                return const Center(
                   child: Text('Error fetching information'),
                 );
               } else {
-                if (demoPersons.getPeople.length > 0) {
+                if (demoPersons.getPeople.isNotEmpty) {
                   return ListView.builder(
                     itemCount: demoPersons.getPeople.length,
                     itemBuilder: (context, index){
@@ -97,7 +97,7 @@ class DemoPersonScreen extends StatelessWidget {
                       );
                   });
                 } else {
-                  return Center(
+                  return const Center(
                     child: Text('No data found'),
                   );
                 }

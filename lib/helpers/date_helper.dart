@@ -21,7 +21,7 @@ class DateHelper
 
   static getDateWithMonthShortName(DateTime date)
   {
-    return DateFormat.d().format(date) + ' ' + DateFormat.MMM().format(date)+ ' ' + DateFormat.y().format(date);
+    return '${DateFormat.d().format(date)} ${DateFormat.MMM().format(date)} ${DateFormat.y().format(date)}';
   }
 
 }

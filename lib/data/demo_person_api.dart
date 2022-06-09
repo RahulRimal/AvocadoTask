@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:avocado_flutter_task/models/demo_person.dart';
-import 'package:avocado_flutter_task/models/prescription.dart';
 import 'package:http/http.dart' as http;
 
 import '../managers/string_manager.dart';

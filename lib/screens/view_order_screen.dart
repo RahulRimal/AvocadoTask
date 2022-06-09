@@ -1,5 +1,4 @@
 import 'package:avocado_flutter_task/helpers/date_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -19,7 +18,7 @@ class ViewOrderScreen extends StatelessWidget {
     list.add(ListTile(
       horizontalTitleGap: 2,
       tileColor: ColorManager.listTileColor,
-      leading: Icon(Icons.person_outline),
+      leading: const Icon(Icons.person_outline),
       title: Text(info),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -36,23 +35,23 @@ class ViewOrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Center(
+        title: const Center(
           child: Text('Prescription'),
         ),
         backgroundColor: ColorManager.primary,
         actions: [
           IconButton(
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
             onPressed: () => Navigator.of(context).pushNamed(DemoPersonScreen.routeName),
           ),
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: const BoxDecoration(
             // color: ColorManager.containerBackground,
             // borderRadius: BorderRadius.circular(20),
             ),
@@ -93,18 +92,18 @@ class ViewOrderScreen extends StatelessWidget {
             // ..._prescriptionInfo('Patient Name', 'Samyam bahadur bc'),
             ..._prescriptionInfo('Patient Name', prescription.patientName),
 
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ..._prescriptionInfo(
                 'Tite for medicine', prescription.prescriptionTitle),
 
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ..._prescriptionInfo('Signature', prescription.docSignature),
 
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
@@ -114,7 +113,7 @@ class ViewOrderScreen extends StatelessWidget {
                   color: ColorManager.secondary,
                   size: 40,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
@@ -134,13 +133,13 @@ class ViewOrderScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: ColorManager.primary,
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
                               child: Text(
                                 // '2022',
                                 DateHelper.getYearFromDate(
                                     prescription.prescriptionDate),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
                                 ),
@@ -148,7 +147,7 @@ class ViewOrderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 2,
                         ),
                         Align(
@@ -159,13 +158,13 @@ class ViewOrderScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: ColorManager.primary,
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
                               child: Text(
                                 // '/02',
                                 DateHelper.getMonthFromDate(
                                     prescription.prescriptionDate),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
                                 ),
@@ -173,7 +172,7 @@ class ViewOrderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 2,
                         ),
                         Align(
@@ -181,14 +180,14 @@ class ViewOrderScreen extends StatelessWidget {
                           child: Container(
                             width: 70,
                             height: 35,
-                            decoration: BoxDecoration(),
-                            padding: EdgeInsets.only(left: 10),
+                            decoration: const BoxDecoration(),
+                            padding: const EdgeInsets.only(left: 10),
                             child: Center(
                               child: Text(
                                 // '/28',
                                 DateHelper.getDayFromDate(
                                     prescription.prescriptionDate),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 25,
                                 ),
@@ -196,7 +195,7 @@ class ViewOrderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                       ],
@@ -205,7 +204,7 @@ class ViewOrderScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],
@@ -214,16 +213,16 @@ class ViewOrderScreen extends StatelessWidget {
       bottomSheet: Padding(
         padding: const EdgeInsets.all(20),
         child: ElevatedButton(
-            child: Text('Saved'),
             style: ElevatedButton.styleFrom(
               primary: ColorManager.primary,
-              minimumSize: Size.fromHeight(50),
-              textStyle: TextStyle(
+              minimumSize: const Size.fromHeight(50),
+              textStyle: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            onPressed: () => Navigator.of(context).pushNamed(DemoPersonScreen.routeName),),
+            onPressed: () => Navigator.of(context).pushNamed(DemoPersonScreen.routeName),
+            child: const Text('Saved'),),
       ),
       // bottomNavigationBar: BottomNavigationBar(
       //   selectedItemColor: Colors.grey,
@@ -257,7 +256,7 @@ class ViewOrderScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.home_outlined,
                   color: Colors.grey,
                 ),
@@ -265,21 +264,21 @@ class ViewOrderScreen extends StatelessWidget {
                 onPressed: () {},
               ),
               IconButton(
-                icon: FaIcon(
+                icon: const FaIcon(
                   FontAwesomeIcons.folderPlus,
                   color: Colors.grey,
                 ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: FaIcon(
+                icon: const FaIcon(
                   FontAwesomeIcons.bookOpen,
                   color: Colors.grey,
                 ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: FaIcon(
+                icon: const FaIcon(
                   FontAwesomeIcons.circleUser,
                   color: Colors.grey,
                 ),

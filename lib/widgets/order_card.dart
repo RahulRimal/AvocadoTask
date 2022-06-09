@@ -6,15 +6,15 @@ import '../managers/color_manager.dart';
 import '../screens/view_order_screen.dart';
 
 class OrderCard extends StatelessWidget {
-  OrderCard({Key? key, required this.prescription}) : super(key: key);
-  Prescription prescription;
+  const OrderCard({Key? key, required this.prescription}) : super(key: key);
+  final Prescription prescription;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.of(context).pushNamed(ViewOrderScreen.routeName, arguments: prescription),
       child: Card(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10,),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10,),
         color: ColorManager.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -25,8 +25,8 @@ class OrderCard extends StatelessWidget {
         child: Column(
           children: [
             
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
               child: Text(
                 'Order',
                 style: TextStyle(
@@ -38,13 +38,13 @@ class OrderCard extends StatelessWidget {
             ),
             
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                 color: ColorManager.containerBackground,
                 // borderRadius: BorderRadius.circular(20),
               ),
               child: Column(children: [
-                Container(
+                SizedBox(
               height: 60,
               child: Center(
                 child: Text(
@@ -75,49 +75,49 @@ class OrderCard extends StatelessWidget {
                           Icons.watch_later_outlined,
                           color: ColorManager.secondary,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
                           // '10:30',
                           prescription.consultationTime,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Icon(
                           Icons.calendar_today_outlined,
                           color: ColorManager.secondary,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
                           // '06 May 2021',
                           DateHelper.getDateWithMonthShortName(prescription.prescriptionDate),
                           // DateHelper.getMonthShortNameFromDate(prescription.prescriptionDate),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       // 'Prescription consultation',
                       prescription.prescriptionDetails,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.grey,
                       ),
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                     width: 30,
                     height: 30,
                     child: CheckboxListTile(
@@ -132,16 +132,16 @@ class OrderCard extends StatelessWidget {
                     )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Divider(
+            const Divider(
               thickness: 1,
               color: Colors.grey,
             ),
             Container(
               height: 60,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   // color: ColorManager.containerBackground,
                   ),
               child: Center(

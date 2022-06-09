@@ -6,7 +6,7 @@ import 'package:avocado_flutter_task/screens/view_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 
@@ -28,12 +28,12 @@ class MyApp extends StatelessWidget {
       
         debugShowCheckedModeBanner: false,
         title: 'Medecine Prescription App',
-        home: ListOfOrderScreen(),
+        home: const ListOfOrderScreen(),
         // home: ViewOrderScreen(),
         routes: {
-          ListOfOrderScreen.routeName: (ctx) => ListOfOrderScreen(),
-          ViewOrderScreen.routeName: (ctx) => ViewOrderScreen(),
-          DemoPersonScreen.routeName: (ctx) => DemoPersonScreen(),
+          ListOfOrderScreen.routeName: (ctx) => const ListOfOrderScreen(),
+          ViewOrderScreen.routeName: (ctx) => const ViewOrderScreen(),
+          DemoPersonScreen.routeName: (ctx) => const DemoPersonScreen(),
         
         },
       ),
