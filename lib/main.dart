@@ -1,3 +1,4 @@
+import 'package:avocado_flutter_task/screens/view_order_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/list_of_order_screen.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Medecine Prescription App',
         
-        home: ListOfOrderScreen(),
+        // home: ListOfOrderScreen(),
+        home: ViewOrderScreen(),
         
         
       );
