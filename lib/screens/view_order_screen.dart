@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../managers/color_manager.dart';
 import '../models/prescription.dart';
+import 'demo_person_screen.dart';
 
 class ViewOrderScreen extends StatelessWidget {
   const ViewOrderScreen({Key? key}) : super(key: key);
@@ -42,6 +43,12 @@ class ViewOrderScreen extends StatelessWidget {
           child: Text('Prescription'),
         ),
         backgroundColor: ColorManager.primary,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.send),
+            onPressed: () => Navigator.of(context).pushNamed(DemoPersonScreen.routeName),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -216,7 +223,7 @@ class ViewOrderScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            onPressed: () {}),
+            onPressed: () => Navigator.of(context).pushNamed(DemoPersonScreen.routeName),),
       ),
       // bottomNavigationBar: BottomNavigationBar(
       //   selectedItemColor: Colors.grey,

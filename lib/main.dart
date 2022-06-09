@@ -1,4 +1,6 @@
+import 'package:avocado_flutter_task/providers/demo_persons.dart';
 import 'package:avocado_flutter_task/providers/prescriptions.dart';
+import 'package:avocado_flutter_task/screens/demo_person_screen.dart';
 import 'package:avocado_flutter_task/screens/list_of_order_screen.dart';
 import 'package:avocado_flutter_task/screens/view_order_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => Prescriptions(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Prescriptions(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DemoPersons(),
+        ),
+      ],
       child: MaterialApp(
       
         debugShowCheckedModeBanner: false,
@@ -24,6 +33,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ListOfOrderScreen.routeName: (ctx) => ListOfOrderScreen(),
           ViewOrderScreen.routeName: (ctx) => ViewOrderScreen(),
+          DemoPersonScreen.routeName: (ctx) => DemoPersonScreen(),
         
         },
       ),
